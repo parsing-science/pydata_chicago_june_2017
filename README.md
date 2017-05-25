@@ -1,0 +1,10 @@
+# PyData Chicago June 2017 Meeting
+
+## Set up
+```
+git clone ___
+cd pydata_chicago_june_2017
+virtualenv venv
+source venv/bin/activate
+pip install -r requirements.txt
+```
