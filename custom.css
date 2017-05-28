@@ -1,7 +1,11 @@
 .reveal {
-    font-size: 300%;
+    font-size: 250%;
 }
 
-body {
-    width:1000;
+h2 {
+    display:inline;
+}
+
+img {
+    display:inline;
 }

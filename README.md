@@ -13,3 +13,19 @@ pip install -r requirements.txt
 ```
 jupyter-nbconvert --to slides Talk.ipynb --post serve
 ```
+
+## Create and present slides
+```
+jupyter-nbconvert --to slides Talk.ipynb
+python -m SimpleHTTPServer
+```
+
+Edit the slides to make the slides bigger
+```
+   Reveal.initialize({
+        width: '100%',
+        height: '100%',
+        transition: 'concave',
+```
+
+Go to http://127.0.0.1:8000/Talk.slides.html in browser.
