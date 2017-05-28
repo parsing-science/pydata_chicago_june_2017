@@ -8,3 +8,8 @@ virtualenv venv
 source venv/bin/activate
 pip install -r requirements.txt
 ```
+
+## Present slides
+```
+jupyter-nbconvert --to slides Talk.ipynb --reveal-prefix=reveal.js --post serve
+```
