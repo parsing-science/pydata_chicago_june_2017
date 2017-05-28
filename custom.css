@@ -1,15 +1,7 @@
 .reveal {
     font-size: 300%;
-    width:100%;
-    margin-left:1%;
-    margin-right:auto;
 }
 
-.reveal pre {
-    width:100%;
-}
-
-.reveal .slides {
-    text-align: left;
-    width:100%;
+body {
+    width:1000;
 }

@@ -1,3 +1,4 @@
+{%- extends 'slides.tpl' -%}
 
 {% block header %}
 <!DOCTYPE html>
