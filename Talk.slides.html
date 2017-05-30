@@ -36,7 +36,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 
 <!-- Loading the mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -58,7 +58,7 @@ if( window.location.search.match( /print-pdf/gi ) ) {
     <!-- End of mathjax configuration -->
 
 <!-- Get Font-awesome from cdn -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.1.0/css/font-awesome.css">
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -67,8 +67,8 @@ if( window.location.search.match( /print-pdf/gi ) ) {
 *
 */
 /*!
- * Bootstrap v3.3.7 (http://getbootstrap.com)
- * Copyright 2011-2016 Twitter, Inc.
+ * Bootstrap v3.3.6 (http://getbootstrap.com)
+ * Copyright 2011-2015 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1163,6 +1163,7 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2591,6 +2592,7 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3081,6 +3083,7 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
+  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8811,9 +8814,6 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
-[dir="rtl"] #ipython_notebook {
-  float: right !important;
-}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -9016,14 +9016,8 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
-[dir="rtl"] #tabs li {
-  float: right;
-}
 ul#tabs {
   margin-bottom: 4px;
-}
-[dir="rtl"] ul#tabs {
-  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -9046,16 +9040,6 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
-}
-[dir="rtl"] .list_toolbar .tree-buttons {
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-right {
-  padding-top: 1px;
-  float: left !important;
-}
-[dir="rtl"] .list_toolbar .pull-left {
-  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9192,9 +9176,6 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
-[dir="rtl"] #tree-selector a {
-  float: right;
-}
 #button-select-all {
   min-width: 50px;
 }
@@ -9284,9 +9265,6 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
-[dir="rtl"] #new-menu {
-  text-align: right;
-}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9331,9 +9309,6 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
-}
-[dir="rtl"] #running .col-sm-8 {
-  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9630,7 +9605,6 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
-  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9651,6 +9625,11 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
+}
+@-moz-document url-prefix() {
+  div.inner_cell {
+    overflow-x: hidden;
+  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11321,7 +11300,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 21ex;
+  width: 20ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11633,7 +11612,6 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
-  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11647,9 +11625,6 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
-}
-.terminal-app .terminal .xterm-rows {
-  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11710,10 +11685,8 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
-.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
-.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11724,11 +11697,9 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
-.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
-.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11854,7 +11825,8 @@ a.anchor-link {
 <div class="reveal">
 <div class="slides">
 <section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11870,19 +11842,21 @@ github.com/parsing-science
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Motivating-Example:-Scikitlearn">Motivating Example: Scikitlearn<a class="anchor-link" href="#Motivating-Example:-Scikitlearn">&#194;&#182;</a></h1>
+<h2>Motivating Example: Scikitlearn</h2>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Generate Fake Data </h1>
+<h2> Generate Fake Data </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -11900,11 +11874,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Create a LinearRegression instance and use it </h1>
+<h2> Create a LinearRegression instance and use it </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -11937,11 +11912,7 @@ github.com/parsing-science
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[5]:</div>
-
-
+<div class="output_area"><div class="prompt output_prompt">Out[5]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -11983,11 +11954,7 @@ github.com/parsing-science
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[7]:</div>
-
-
+<div class="output_area"><div class="prompt output_prompt">Out[7]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12000,11 +11967,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Save and Load LR </h1>
+<h2> Save and Load LR </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12050,11 +12018,7 @@ github.com/parsing-science
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[10]:</div>
-
-
+<div class="output_area"><div class="prompt output_prompt">Out[10]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12067,11 +12031,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Intro-to-PyMC3">Intro to PyMC3<a class="anchor-link" href="#Intro-to-PyMC3">&#194;&#182;</a></h1><ul>
+<h2> Intro to PyMC3 </h2><ul>
 <li>Library for Probabilistic Modeling</li>
 <li>MCMC Samplers</li>
 <li>Variational Fitting Algorithms</li>
@@ -12082,11 +12047,12 @@ github.com/parsing-science
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Set up the PyMC model </h1>
+<h2> Set up the PyMC model </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12097,8 +12063,7 @@ github.com/parsing-science
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">lin_reg_model</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span>
 <span class="k">with</span> <span class="n">lin_reg_model</span><span class="p">:</span>
-    
-    <span class="c1"># CHANGE: All names are now cast as strings.</span>
+
     <span class="n">alpha</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mf">10.</span><span class="o">**-</span><span class="mi">2</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
     <span class="n">betas</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s1">&#39;betas&#39;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tau</span><span class="o">=</span><span class="mf">10.</span> <span class="o">**</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
     
@@ -12114,14 +12079,15 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Sample from the model </h1>
+<h2> Sample from the model </h2>
 </div>
 </div>
-</div></section></section><section><section>
+</div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
@@ -12140,11 +12106,7 @@ github.com/parsing-science
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>100%|██████████| 2000/2000.0 [00:05&lt;00:00, 367.17it/s]
 </pre>
@@ -12154,12 +12116,13 @@ github.com/parsing-science
 </div>
 </div>
 
-</div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Create posterior predictive samples </h1>
+<h2> Create posterior predictive samples </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12168,7 +12131,11 @@ github.com/parsing-science
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ppc</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample_ppc</span><span class="p">(</span><span class="n">nuts_trace</span><span class="p">[</span><span class="mi">1000</span><span class="p">:],</span> <span class="n">model</span><span class="o">=</span><span class="n">lin_reg_model</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span><span class="mi">1000</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ppc</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample_ppc</span><span class="p">(</span>
+    <span class="n">nuts_trace</span><span class="p">[</span><span class="mi">1000</span><span class="p">:],</span>
+    <span class="n">model</span><span class="o">=</span><span class="n">lin_reg_model</span><span class="p">,</span>
+    <span class="n">samples</span><span class="o">=</span><span class="mi">1000</span>
+<span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12179,11 +12146,7 @@ github.com/parsing-science
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>100%|██████████| 1000/1000 [02:08&lt;00:00,  7.78it/s]
 </pre>
@@ -12223,11 +12186,7 @@ github.com/parsing-science
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[15]:</div>
-
-
+<div class="output_area"><div class="prompt output_prompt">Out[15]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12240,11 +12199,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Most PyMC3 Examples </h1><ul>
+<h2> Most PyMC3 Examples </h2><ul>
 <li>Exist in Jupyter notebooks</li>
 <li>Focus on training a model with one dataset</li>
 <li>Don’t demonstrate how to predict new data</li>
@@ -12254,11 +12214,12 @@ github.com/parsing-science
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Comparing the two libraries </h1><table>
+<h2> Comparing the two libraries </h2><table>
 <tr>
 <th> </th>
 <th>sklearn</th>
@@ -12293,11 +12254,12 @@ github.com/parsing-science
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> What we want to reproduce in PyMC3 </h1><ul>
+<h2> What we want to reproduce in PyMC3 </h2><ul>
 <li>fit</li>
 <li>predict</li>
 <li>score</li>
@@ -12308,11 +12270,12 @@ github.com/parsing-science
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Initializing the HLM class </h1>
+<h2> Initializing the HLM class </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12326,7 +12289,7 @@ github.com/parsing-science
 <span class="sd">    Custom Hierachical Linear Model built using PyMC3.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cached_model</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">shared_vars</span> <span class="o">=</span> <span class="bp">None</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">num_cats</span> <span class="o">=</span> <span class="bp">None</span>
@@ -12340,11 +12303,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Fit </h1>
+<h2> Fit </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12395,11 +12359,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Create the model </h1>
+<h2> Create the model </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12420,7 +12385,11 @@ github.com/parsing-science
 
     <span class="n">model_cats</span> <span class="o">=</span> <span class="n">theano</span><span class="o">.</span><span class="n">shared</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;int&#39;</span><span class="p">))</span>
 
-    <span class="bp">self</span><span class="o">.</span><span class="n">shared_vars</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;model_input&#39;</span><span class="p">:</span> <span class="n">model_input</span><span class="p">,</span> <span class="s1">&#39;model_output&#39;</span><span class="p">:</span> <span class="n">model_output</span><span class="p">,</span> <span class="s1">&#39;model_cats&#39;</span><span class="p">:</span> <span class="n">model_cats</span><span class="p">}</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">shared_vars</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;model_input&#39;</span><span class="p">:</span> <span class="n">model_input</span><span class="p">,</span>
+        <span class="s1">&#39;model_output&#39;</span><span class="p">:</span> <span class="n">model_output</span><span class="p">,</span>
+        <span class="s1">&#39;model_cats&#39;</span><span class="p">:</span> <span class="n">model_cats</span>
+    <span class="p">}</span>
 
     <span class="n">model</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Model</span><span class="p">()</span>
 
@@ -12432,8 +12401,19 @@ github.com/parsing-science
         <span class="n">mu_beta</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s2">&quot;mu_beta&quot;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
         <span class="n">sigma_beta</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">HalfNormal</span><span class="p">(</span><span class="s2">&quot;sigma_beta&quot;</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
 
-        <span class="n">alpha</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s1">&#39;alpha&#39;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu_alpha</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="n">sigma_alpha</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_cats</span><span class="p">,))</span>
-        <span class="n">beta</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="s1">&#39;beta&#39;</span><span class="p">,</span> <span class="n">mu</span><span class="o">=</span><span class="n">mu_beta</span><span class="p">,</span> <span class="n">sd</span><span class="o">=</span><span class="n">sigma_beta</span><span class="p">,</span> <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_cats</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_pred</span><span class="p">))</span>
+        <span class="n">alpha</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span>
+            <span class="s1">&#39;alpha&#39;</span><span class="p">,</span>
+            <span class="n">mu</span><span class="o">=</span><span class="n">mu_alpha</span><span class="p">,</span>
+            <span class="n">sd</span><span class="o">=</span><span class="n">sigma_alpha</span><span class="p">,</span>
+            <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_cats</span><span class="p">,)</span>
+        <span class="p">)</span>
+
+        <span class="n">beta</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span>
+            <span class="s1">&#39;beta&#39;</span><span class="p">,</span>
+            <span class="n">mu</span><span class="o">=</span><span class="n">mu_beta</span><span class="p">,</span>
+            <span class="n">sd</span><span class="o">=</span><span class="n">sigma_beta</span><span class="p">,</span>
+            <span class="n">shape</span><span class="o">=</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_cats</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_pred</span><span class="p">)</span>
+        <span class="p">)</span>
 
         <span class="n">c</span> <span class="o">=</span> <span class="n">model_cats</span>
 
@@ -12451,11 +12431,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Create minibatches for ADVI </h1>
+<h2> Create minibatches for ADVI </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12480,11 +12461,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Inference </h1>
+<h2> Inference </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12493,7 +12475,13 @@ github.com/parsing-science
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">_inference</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">minibatch_tensors</span><span class="p">,</span> <span class="n">minibatch_RVs</span><span class="p">,</span> <span class="n">minibatches</span><span class="p">,</span> <span class="n">num_samples</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">_inference</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="n">minibatch_tensors</span><span class="p">,</span>
+    <span class="n">minibatch_RVs</span><span class="p">,</span>
+    <span class="n">minibatches</span><span class="p">,</span>
+    <span class="n">num_samples</span>
+<span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;</span>
 <span class="sd">    Runs minibatch variational ADVI and then sample from those results.</span>
 <span class="sd">    &quot;&quot;&quot;</span>
@@ -12518,11 +12506,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Predict </h1>
+<h2> Predict </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12553,11 +12542,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Predict Probabilities </h1>
+<h2> Predict Probabilities </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12587,7 +12577,11 @@ github.com/parsing-science
 
     <span class="bp">self</span><span class="o">.</span><span class="n">_set_shared_vars</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_samples</span><span class="p">),</span> <span class="n">cats</span><span class="p">)</span>
 
-    <span class="n">ppc</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample_ppc</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">advi_trace</span><span class="p">,</span> <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cached_model</span><span class="p">,</span> <span class="n">samples</span><span class="o">=</span><span class="mi">2000</span><span class="p">)</span>
+    <span class="n">ppc</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample_ppc</span><span class="p">(</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">advi_trace</span><span class="p">,</span>
+        <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cached_model</span><span class="p">,</span>
+        <span class="n">samples</span><span class="o">=</span><span class="mi">2000</span>
+    <span class="p">)</span>
 
     <span class="k">return</span> <span class="n">ppc</span><span class="p">[</span><span class="s1">&#39;o&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
@@ -12597,11 +12591,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Set Shared Variables </h1>
+<h2> Set Shared Variables </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12626,11 +12621,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Score </h1>
+<h2> Score </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12659,11 +12655,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Save </h1>
+<h2> Save </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12704,11 +12701,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Load </h1>
+<h2> Load </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12741,19 +12739,21 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Custom-PyMC3-Class">Custom PyMC3 Class<a class="anchor-link" href="#Custom-PyMC3-Class">&#194;&#182;</a></h1>
+<h2>Custom PyMC3 Class </h2>
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Generate Fake Data </h1>
+<h2> Generate Fake Data </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12811,11 +12811,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Load the class </h1>
+<h2> Load the class </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12845,11 +12846,12 @@ github.com/parsing-science
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Fit the HLM </h1>
+<h2> Fit the HLM </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12869,11 +12871,7 @@ github.com/parsing-science
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>Average ELBO = -368.39: 100%|██████████| 50000/50000 [00:32&lt;00:00, 1550.62it/s]
 Finished minibatch ADVI: ELBO = -373.78
@@ -12882,11 +12880,7 @@ Finished minibatch ADVI: ELBO = -373.78
 </div>
 </div>
 
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[23]:</div>
-
-
+<div class="output_area"><div class="prompt output_prompt">Out[23]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -12899,11 +12893,12 @@ Finished minibatch ADVI: ELBO = -373.78
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Predict and score the model </h1>
+<h2> Predict and score the model </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12923,11 +12918,7 @@ Finished minibatch ADVI: ELBO = -373.78
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>100%|██████████| 2000/2000 [00:08&lt;00:00, 252.28it/s]
 </pre>
@@ -12954,11 +12945,7 @@ Finished minibatch ADVI: ELBO = -373.78
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>100%|██████████| 2000/2000 [00:08&lt;00:00, 241.20it/s]
 </pre>
@@ -12985,22 +12972,14 @@ Finished minibatch ADVI: ELBO = -373.78
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>100%|██████████| 2000/2000 [00:08&lt;00:00, 258.69it/s]
 </pre>
 </div>
 </div>
 
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[26]:</div>
-
-
+<div class="output_area"><div class="prompt output_prompt">Out[26]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13013,11 +12992,12 @@ Finished minibatch ADVI: ELBO = -373.78
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Save and Load the model </h1>
+<h2> Save and Load the model </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -13076,22 +13056,14 @@ Finished minibatch ADVI: ELBO = -373.78
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stderr output_text">
 <pre>100%|██████████| 2000/2000 [00:08&lt;00:00, 236.31it/s]
 </pre>
 </div>
 </div>
 
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[30]:</div>
-
-
+<div class="output_area"><div class="prompt output_prompt">Out[30]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13104,11 +13076,12 @@ Finished minibatch ADVI: ELBO = -373.78
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Bonus:-Checking-model-fit">Bonus: Checking model fit<a class="anchor-link" href="#Bonus:-Checking-model-fit">&#194;&#182;</a></h1>
+<h2>Bonus: Checking model fit</h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -13128,11 +13101,7 @@ Finished minibatch ADVI: ELBO = -373.78
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
+<div class="output_area"><div class="prompt"></div>
 
 
 <div class="output_png output_subarea ">
@@ -13465,11 +13434,7 @@ AABJRU5ErkJggg==
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
+<div class="output_area"><div class="prompt"></div>
 <div class="output_subarea output_stream output_stdout output_text">
 <pre>
 mu_alpha:
@@ -13615,11 +13580,7 @@ sigma_beta:
 <div class="output">
 
 
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[33]:</div>
-
-
+<div class="output_area"><div class="prompt output_prompt">Out[33]:</div>
 
 
 <div class="output_text output_subarea output_execute_result">
@@ -13639,11 +13600,7 @@ sigma_beta:
 
 </div>
 
-<div class="output_area">
-
-<div class="prompt"></div>
-
-
+<div class="output_area"><div class="prompt"></div>
 
 
 <div class="output_png output_subarea ">
@@ -17073,11 +17030,12 @@ QggJESVUhBBCCCGEEBKi/w+cNOE/4oOrcAAAAABJRU5ErkJggg==
 </div>
 
 </div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><h1> Next Steps </h1></p>
+<p><h2> Next Steps </h2></p>
 <ul>
 <li>Build Bayesian Model base class </li>
 <li>Pass more options to the init function</li>
@@ -17087,11 +17045,12 @@ QggJESVUhBBCCCGEEBKi/w+cNOE/4oOrcAAAAABJRU5ErkJggg==
 </div>
 </div>
 </div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1> Thanks! </h1>
+<h2> Thanks! </h2>
 </div>
 </div>
 </div></section></section>
@@ -17115,8 +17074,8 @@ require(
 
         // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
         Reveal.initialize({
-            width: '100%',
-            height: '100%',
+            width: '95%',
+            height: '95%',
             transition: 'concave',
             controls: true,
             progress: true,
