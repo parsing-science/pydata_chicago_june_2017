@@ -11881,7 +11881,7 @@ github.com/parsing-science
 <li>PyMC3 Linear Regression</li>
 <li>Compare Scikitlearn and PyMC3</li>
 <li>Implement Hiearchical Logistic Regression in PyMC3</li>
-<li>See the Hierarchical model in action</li>
+<li>Use the Hierarchical Logistic Regression</li>
 </ul>
 
 </div>
@@ -12344,13 +12344,12 @@ IqKcYMAnIsqJ/w/Z/Gpduv6/jAAAAABJRU5ErkJggg==
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p><h2> Using PyMC3 </h2></p>
-<ol>
-<li>Write a PyMC3 model and choose distributions for your priors</li>
-<li>Incorporate training data into your model</li>
-<li>Infer your parameters using sampling (e.g. NUTS) or variational inference (e.g. ADVI)</li>
-<li>Interpret your parameter distributions</li>
-<li>Create posterior samples with your inferred parameters to predict new data</li>
-</ol>
+<ul>
+<li>Step 1: Set up: Parameterize your model, choose priors, and insert training data</li>
+<li>Step 2: Inference: infer your parameters using sampling (e.g. NUTS) or variational inference (e.g. ADVI)</li>
+<li>Step 3: Interpret: Check your parameter distributions and model fit</li>
+<li>Step 4: Predict data: Create posterior samples with your inferred parameters</li>
+</ul>
 
 </div>
 </div>
@@ -12359,7 +12358,7 @@ IqKcYMAnIsqJ/w/Z/Gpduv6/jAAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> Set up the PyMC model </h2>
+<h2> Step 1: Set up the PyMC3 model </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12390,7 +12389,7 @@ IqKcYMAnIsqJ/w/Z/Gpduv6/jAAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> Infer your parameters </h2>
+<h2> Step 2: Infer your parameters </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -12431,7 +12430,7 @@ IqKcYMAnIsqJ/w/Z/Gpduv6/jAAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> Interpret your parameters </h2>
+<h2> Step 3: Interpret your parameters </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -13282,7 +13281,7 @@ y8zMzMzMrEhcwTIzMzMzMysSV7DMzMzMzMyK5L8BCdXBSOE1yqEAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> Create posterior predictive samples </h2>
+<h2>Step 4: Predict data by creating posterior predictive samples </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -13439,11 +13438,32 @@ y8zMzMzMrEhcwTIzMzMzMysSV7DMzMzMzMyK5L8BCdXBSOE1yqEAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> Map between Scikitlearn and PyMC3 </h2><p>Fit: Step 1: Writing your PyMC3 model, choosing your priors, Step 2: Incorporate training data, Step 3: Infer paramters.</p>
-<p>Predict: Step 5: Create posterior samples to predict new data</p>
-<p>Score: Step 5: create posterior samples to predict new data</p>
-<p>Save/Load: Something new!</p>
-
+<h2> Map between Scikitlearn and PyMC3 </h2><table>
+<tr>
+<th>sklearn</th>
+<th>PyMC3</th>
+</tr>
+<tr>
+<th>Fit</th>
+<th>Step 1: Set up, Step 2: Inference</th>
+</tr>
+<tr>
+<th>Predict</th>
+<th>Step 4: Predict data</th>
+</tr>
+<tr>
+<th>Score</th>
+<th>Step 4: Predict data</th>
+</tr>
+<tr>
+<th>Save/Load</th>
+<th>??</th>
+</tr>
+<tr>
+<th>??</th>
+<th>Step 3: Interpret</th>
+</tr>
+</table>
 </div>
 </div>
 </div></section></section><section><section>
@@ -13489,7 +13509,7 @@ y8zMzMzMrEhcwTIzMzMzMysSV7DMzMzMzMyK5L8BCdXBSOE1yqEAAAAASUVORK5CYII=
 </div><div class="fragment">
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">fit</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">cats</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
@@ -13508,8 +13528,10 @@ y8zMzMzMrEhcwTIzMzMzMysSV7DMzMzMzMyK5L8BCdXBSOE1yqEAAAAASUVORK5CYII=
     <span class="n">num_samples</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">num_pred</span> <span class="o">=</span> <span class="n">X</span><span class="o">.</span><span class="n">shape</span>
 
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cached_model</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="c1"># Step 1: Set up the model</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cached_model</span><span class="p">,</span> <span class="n">o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_model</span><span class="p">()</span>
 
+    <span class="c1">#Step 2: Inference</span>
     <span class="n">minibatch_tensors</span> <span class="o">=</span> <span class="p">[</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">shared_vars</span><span class="p">[</span><span class="s1">&#39;model_input&#39;</span><span class="p">],</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">shared_vars</span><span class="p">[</span><span class="s1">&#39;model_output&#39;</span><span class="p">],</span>
@@ -13538,7 +13560,7 @@ y8zMzMzMrEhcwTIzMzMzMysSV7DMzMzMzMyK5L8BCdXBSOE1yqEAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> Create the model </h2>
+<h2> Step 1: Set up the model </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -13609,7 +13631,7 @@ y8zMzMzMrEhcwTIzMzMzMysSV7DMzMzMzMyK5L8BCdXBSOE1yqEAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> Create minibatches for ADVI </h2>
+<h2> Step 2a: Inference: Create minibatches for ADVI</h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -13638,7 +13660,7 @@ y8zMzMzMrEhcwTIzMzMzMysSV7DMzMzMzMyK5L8BCdXBSOE1yqEAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> Inference </h2>
+<h2> Step 2: Inference </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -13682,41 +13704,6 @@ y8zMzMzMrEhcwTIzMzMzMysSV7DMzMzMzMyK5L8BCdXBSOE1yqEAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> Predict </h2>
-</div>
-</div>
-</div><div class="fragment">
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">cats</span><span class="p">):</span>
-    <span class="sd">&quot;&quot;&quot;</span>
-<span class="sd">    Predicts labels of new data with a trained HLM</span>
-
-<span class="sd">    Parameters</span>
-<span class="sd">    ----------</span>
-<span class="sd">    X : numpy array, shape [n_samples, n_features]</span>
-
-<span class="sd">    cats: numpy array, shape [n_samples, ]</span>
-<span class="sd">    &quot;&quot;&quot;</span>
-    <span class="n">ppc_mean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">cats</span><span class="p">)</span>
-
-    <span class="n">pred</span> <span class="o">=</span> <span class="n">ppc_mean</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
-
-    <span class="k">return</span> <span class="n">pred</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div></div></section></section><section><section>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2> Predict Probabilities </h2>
 </div>
 </div>
@@ -13744,9 +13731,10 @@ y8zMzMzMrEhcwTIzMzMzMysSV7DMzMzMzMyK5L8BCdXBSOE1yqEAAAAASUVORK5CYII=
 
     <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">cached_model</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">cached_model</span><span class="p">,</span> <span class="n">o</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">create_model</span><span class="p">()</span>
-
+    
+    <span class="c1"># Step 4: Predict data</span>
     <span class="bp">self</span><span class="o">.</span><span class="n">_set_shared_vars</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">num_samples</span><span class="p">),</span> <span class="n">cats</span><span class="p">)</span>
-
+   
     <span class="n">ppc</span> <span class="o">=</span> <span class="n">pm</span><span class="o">.</span><span class="n">sample_ppc</span><span class="p">(</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">advi_trace</span><span class="p">,</span>
         <span class="n">model</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">cached_model</span><span class="p">,</span>
@@ -13765,7 +13753,7 @@ y8zMzMzMrEhcwTIzMzMzMysSV7DMzMzMzMyK5L8BCdXBSOE1yqEAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2> Set Shared Variables </h2>
+<h2> Set Shared Variables (part of Step 4) </h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -13783,6 +13771,41 @@ y8zMzMzMrEhcwTIzMzMzMysSV7DMzMzMzMyK5L8BCdXBSOE1yqEAAAAASUVORK5CYII=
     <span class="bp">self</span><span class="o">.</span><span class="n">shared_vars</span><span class="p">[</span><span class="s1">&#39;model_output&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">model_output</span><span class="p">)</span>
 
     <span class="bp">self</span><span class="o">.</span><span class="n">shared_vars</span><span class="p">[</span><span class="s1">&#39;model_cats&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_value</span><span class="p">(</span><span class="n">model_cats</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div></div></section></section><section><section>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2> Predict </h2>
+</div>
+</div>
+</div><div class="fragment">
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">predict</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">X</span><span class="p">,</span> <span class="n">cats</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Predicts labels of new data with a trained HLM</span>
+
+<span class="sd">    Parameters</span>
+<span class="sd">    ----------</span>
+<span class="sd">    X : numpy array, shape [n_samples, n_features]</span>
+
+<span class="sd">    cats: numpy array, shape [n_samples, ]</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">ppc_mean</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">predict_proba</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">cats</span><span class="p">)</span>
+
+    <span class="n">pred</span> <span class="o">=</span> <span class="n">ppc_mean</span> <span class="o">&gt;</span> <span class="mf">0.5</span>
+
+    <span class="k">return</span> <span class="n">pred</span>
 </pre></div>
 
 </div>
@@ -13909,7 +13932,7 @@ y8zMzMzMrEhcwTIzMzMzMysSV7DMzMzMzMyK5L8BCdXBSOE1yqEAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2>Custom PyMC3 Class </h2>
+<h2>Use the Custom PyMC3 Class </h2>
 </div>
 </div>
 </div></section></section><section><section>
@@ -14351,7 +14374,7 @@ Finished minibatch ADVI: ELBO = -11,522.86
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2>Bonus: Checking model fit</h2>
+<h2>Step 3: Interpret your parameters</h2>
 </div>
 </div>
 </div><div class="fragment">
@@ -16875,6 +16898,9 @@ require(
 
         // Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
         Reveal.initialize({
+            width: '100%',
+            height: '100%',
+            transition: 'concave',
             controls: true,
             progress: true,
             history: true,
